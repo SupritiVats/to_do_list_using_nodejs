@@ -1,7 +1,7 @@
 var getexpress=require("express");
 receivedexpress=getexpress();
 var getmysql=require("mysql");
-var fileuploader=require("express-fileupload");
+// var fileuploader=require("express-fileupload");
 
 
 //=====================mysql connection========================
@@ -30,10 +30,8 @@ dbref.connect(function(err){
 receivedexpress.listen(2023,function(){
     console.log("HEY HURRAH!!  SERVER GOT STARTED");
 })
-receivedexpress.use(getexpress.static("public"));// for incuding css
+// receivedexpress.use(getexpress.static("public"));// for incuding css
 receivedexpress.get("/",function(req,resp){
-    //resp.send("hi its homie!!!!!");
-    //process:global object
     var purapath=process.cwd()+"/public/index.html";
     resp.sendFile(purapath);
 })
@@ -93,8 +91,7 @@ receivedexpress.get("/sendpunch",function(req,res){
 })
 
 
-///=====================================================
-// //================================
+//=======================================tasks================
 receivedexpress.get("/fetchAllRecords",function(req,res){
     dbref.query("select * from tasks",function(err,result){
         if(err)
@@ -107,7 +104,7 @@ receivedexpress.get("/fetchAllRecords",function(req,res){
     })
 })
 
-//=======================delete task
+//=======================delete task==============================================
 
 receivedexpress.get("/delete-task",function(req,res){
     dbref.query("delete from tasks where emailid=?",[req.query.emailid],function(err,result){
