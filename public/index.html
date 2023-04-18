@@ -16,17 +16,27 @@
 
     <style>
         #pic {
-            margin-top: 117px;
+            /* margin-top: px; */
             width: 100vw;
             height: 90vh;
             background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: .3;
+            opacity: .5;
             object-fit: cover;
-            background: linear-gradient(rgba(160, 130, 170, 0.5),
-                    rgba(177, 180, 199, 0.5))
+            /* background: linear-gradient(rgba(160, 130, 170, 0.5),
+                    rgba(177, 180, 199, 0.5)) */
+        }
+
+        #box{ background-color: rgb(18, 18, 18);
+            height: 45vh;
+            width:40vw;
+            margin-top: -450px;
+            margin-left: 440px;
+           color: WHITE;
+           font-size: large;
+           font-family: Georgia, 'Times New Roman', Times, serif;
         }
     </style>
     <script>
@@ -91,77 +101,24 @@
         </div>
     </nav>
 
-    <!-- ===================================================================-->
-
-    <div class="container" style="margin-top: -520px; margin-left: 75px; ">
-        <div class="row">
-            <div class="container d-flex justify-content-center mt-1">
-                <!--  -->
-                <div class="card border border-success border-2 mt-5 col-md-3 op2">
-                    <img src="media/s2.png" class="card-img-top " style="margin-top: 10px; padding: 39px;" width="70%"
-                        height="57%" alt="..."> <br>
-                    <div class="card-body">
-                        <center>
-                            <h5 class="card-title"> PLACEMENT PORTAL FOR STUDENTS</h5><br>
-                            <a href="" id="loginbtn" class="btn btn-success" data-bs-toggle="modal"
-                                data-bs-target="#login">LOGIN
-                                HERE</a>
-                        </center>
-                    </div>
-                </div>
-
-                <!--  -->
-                <div class="card border border-success border-2 mt-5 col-md-3 op2">
-                    <img src="media/i2.png" class="card-img-top" style="margin-top: 10px; padding: 35px;" width="70%"
-                        height="57%" alt="..."> <br>
-                    <div class="card-body">
-                        <center>
-                            <h5 class="card-title"> PLACEMENT PORTAL FOR OFFICERS</h5> <br>
-                            <a href="" id="" data-bs-toggle="modal" data-bs-target="#loginOfficer"
-                                class="btn btn-success">LOGIN
-                                HERE</a>
-                        </center>
-                    </div>
-                </div>
-
-                <!--  -->
-                <!--  -->
-                <div class="card border border-success border-2 mt-5 col-md-3 op2">
-                    <img src="media/i3.png" class="card-img-top" style="margin-top: 10px; padding: 34px;" width="50%"
-                        height="57%" alt="..."> <br>
-                    <div class="card-body">
-                        <center>
-                            <h5 class="card-title"> ONLINE CLASSES FOR STUDENTS</h5> <br>
-                            <a href="" id="logout1" class="btn btn-success">LOGIN HERE</a>
-                        </center>
-                    </div>
-                </div>
-
-                <!--  -->
-                <!--  -->
-                <div class="card border border-success border-2 mt-5 col-md-3 op2">
-                    <img src="media/s5.png" class="card-img-top" style="margin-top: 10px; padding: 40px;" width="50%"
-                        height="57%" alt="..."> <br>
-                    <div class="card-body">
-                        <center>
-                            <h5 class="card-title"> ONLINE ASSESSMENT FOR STUDENTS</h5> <br>
-                            <a href="" id="logout1" class="btn btn-success">LOGIN HERE</a>
-                        </center>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
 
 
     <!-- background -->
     <!-- <img id="pic" src="media/background.jpg" style="background-size: cover; height: 100%; width: 100%;   margin-top: 30px; "><img/> -->
     <div class="">
-        <img id="pic" src="media/b2.jpg" />
-
+        <div>
+            <img id="pic" src="media/b2.jpg" />
+        </div>
+          <div id="box">
+          <div>
+            <center> <br> <br> <br> <br>
+                MAKE YOUR LIFE EASY TO GO. <br>
+                 LET MAKE IT ORGANIZED! <br>
+                USE THIS WEB APPLICATION TO CREATE TODOS <br> DELETE AS PER CHOICE. <br>
+               </center>
+          </div>
+            
+          </div>
     </div>
     <!-- ================ sign up   ----=======================-->
 
@@ -190,7 +147,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success" id="sendsignup">Sign Up</button>
+                    <button type="button" class="btn btn-dark" id="sendsignup">Sign Up</button>
                 </div>
 
             </div>
@@ -219,7 +176,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-success" id="sendlogin">Login</button>
+              <button type="button" class="btn btn-dark" id="sendlogin">Login</button>
             </div>
           </div>
         </div>

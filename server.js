@@ -30,13 +30,13 @@ dbref.connect(function(err){
 receivedexpress.listen(2023,function(){
     console.log("HEY HURRAH!!  SERVER GOT STARTED");
 })
-// receivedexpress.use(getexpress.static("public"));// for incuding css
+receivedexpress.use(getexpress.static("public"));// for incuding css
 receivedexpress.get("/",function(req,resp){
     var purapath=process.cwd()+"/public/index.html";
     resp.sendFile(purapath);
 })
 
-//====================================== login and signup=========================
+//==================================== login and signup=========================
 receivedexpress.get("/signup",function(req,res){
 
     var dataarr=[req.query.txtEmail,req.query.txtPass];
