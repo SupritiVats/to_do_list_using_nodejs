@@ -20,7 +20,7 @@ dbref.connect(function(err){
         console.log(err);
     }
     else{
-        console.log("connected...hogya g  !!!!!!!");
+        console.log("connected..");
     }
 })
 
