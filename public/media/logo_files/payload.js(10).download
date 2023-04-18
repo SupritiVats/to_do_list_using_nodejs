@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/editor/slogan", {data:[{},{}],fetch:{},mutations:[]});

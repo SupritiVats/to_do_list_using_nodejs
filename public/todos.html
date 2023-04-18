@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo Tasks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <style>
+        .col a {
+            text-decoration: none;
+            font-size: 20px;
+
+        }
+        #logout
+        { 
+            color: white;
+            /* background-color: pink; */
+
+
+        }
+
+        #logout:hover
+        { 
+            color: black;
+            /* background-color: pink; */
+
+
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+    
+          $("#sendpunch").click(function () {
+            var url = "/sendpunch?txtEmail=" + $("#txtEmail").val() + "&&taskinput=" + $("#taskinput").val();;
+            $.get(url, function (resp) {
+              alert(resp);
+            })
+          })
+
+
+        })    
+         </script>
+         <script>
+              var module=angular.module("myModule",[]);
+
+module.controller("myController",function($scope,$http){
+
+    $scope.jsonAry=[];
+    $scope.fetchAllRecords=function(){
+        $http.get("/fetchAllRecords").then(fxSuccess,function(response){
+           
+        })
+        function fxSuccess(response){
+            $scope.jsonAry=response.data;
+        }
+    }
+
+    $scope.deletetask=function(emailid){
+        var url="/delete-task?emailid="+emailid;
+        $http.get(url).then(fxblock,function(response){
+            
+        })
+        function fxblock(response)
+        {
+            $scope.fetchAllRecords();
+        }
+    }
+})
+         </script>
+
+
+</head>
+
+<body style="background-color: rgb(120, 161, 222);" ng-app="myModule" ng-controller="myController" >
+
+    <!-- navigation  -->
+    <nav class="navbar navbar-success bg-dark">
+        <!-- Navbar content -->
+        <div class="m-1">
+            <img src="media/logo.png" alt="" width="84" height="72" style="margin:-15px -10px;  ">
+            <span class="navbar-brand mb-0 h1"
+                style="color: rgb(252, 253, 253);margin-left:45px; font-size: 30px; font-family:Georgia, 'Times New Roman', Times, serif ;">TASK_IT</span>
+        </div>
+        <div>
+            <form class="container-fluid gap-3 d-flex justify-content-end">
+
+                <button id="logout" type="button" id="signupbtn" class="btn btn-outline-light" >
+                    <a id="logout" href="index.html" style="text-decoration: none;   ">LOGOUT</a>
+                </button>
+            </form>
+        </div>
+        
+       
+    </nav>
+
+                     <div  style="margin-left: 130px; margin-top: 50px;">
+                        <form class="row g-3">
+                            <div class="col-md-4">
+                                <label for="txtEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="txtEmail" id="txtEmail">
+                                <!-- <label class="form-label" id="errEmail">*</label> -->
+                            </div>
+                            <div class="col-md-6">
+
+                              <label for="inputEmail4" class="form-label">WRITE YOUR TASK</label>
+                              <input type="text" class="form-control" id="taskinput">
+                            </div>
+
+                             
+                            <div class="col-2">
+                                <br> 
+                              <button type="submit" class="btn btn-dark btn-md" id="sendpunch" style="margin-top: 7px;">PUNCH</button>
+                            </div>
+                          </form>
+
+                     </div>
+
+
+
+
+                <!-- dxcfgvhjbnkm -->
+                <div class="container mt-5">
+                    <div class="d-flex justify-content-center mb-5">
+                        <button type="button" class="btn btn-outline-dark" ng-click="fetchAllRecords();">Fetch All Records</button>
+                    </div>
+               </div>
+                <!--table-->
+                <div class="container" style="border: 2px solid rgb(0, 0, 0)">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">EmailId</th>
+                            <th scope="col">Task</th>
+                            <th scope="col">Decision</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obj in jsonAry">
+                              <th scope="row">{{$index+1}}</th>
+                              <th>{{obj.emailid}}</th>
+                              <th>{{obj.task}}</th>
+                              <th>
+                                  <button type="button" class="btn btn-dark btn-sm" ng-click="deletetask(obj.emailid);">Delete</button>
+                              </th> 
+                             
+                            </tr>
+                            
+                          </tbody>
+                      </table>
+                
+                </div>
+            
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
